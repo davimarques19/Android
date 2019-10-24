@@ -1,0 +1,28 @@
+package com.example.provadavimarques;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.TextView;
+
+public class Pesquisar extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pesquisar);
+
+        SharedPreferences sh = getSharedPreferences("resultados",MODE_PRIVATE);
+        TextView lbPesquisa = findViewById(R.id.txtResultadoPesquisa);
+
+        String nomeProduto = sh.getString("produto","teste");
+        String valorCusto = sh.getString("custo","teste");
+        String valorVenda = sh.getString("venda","teste");
+
+        lbPesquisa.setText("Nome do produto: " + nomeProduto + "; \n" + "Valor Custo: " + valorCusto + "; \n" + "Valor Venda: " + valorVenda + "; \n-----------------------------------------");
+
+    }
+
+}
