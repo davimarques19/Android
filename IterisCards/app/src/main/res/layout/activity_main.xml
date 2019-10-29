@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/tv_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#D8D8D8"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/txt_endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cidade Monções - SP"
+        android:textSize="20sp"
+        android:layout_below="@id/tv_image"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/txt_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 5.000.000,00"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_image"/>
+
+    <TextView
+        android:id="@+id/txt_proprietario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fábio Tinelo"
+        android:textSize="20sp"
+        android:layout_below="@id/txt_endereco"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/txt_tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Venda"
+        android:textSize="20sp"
+        android:layout_below="@id/txt_valor"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
