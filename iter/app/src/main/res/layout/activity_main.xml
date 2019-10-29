@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt1"
+        android:text="Texto 01"
+        android:background="#F4A460" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt2"
+        android:text="Texto 02"
+        android:background="#FF0000" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt3"
+        android:text="Texto 03"
+        android:background="#FFE4E1" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt4"
+            android:text="Texto 04"
+            android:gravity="center"
+            android:layout_toLeftOf="@+id/txt5"
+            android:background="#7B68EE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt3"
+            android:id="@+id/txt5"
+            android:gravity="center"
+            android:text="Texto 05"
+            android:background="#FFFF00" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt6"
+            android:layout_toRightOf="@+id/txt5"
+            android:gravity="center"
+            android:text="Texto 06"
+            android:background="#48D1CC" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
