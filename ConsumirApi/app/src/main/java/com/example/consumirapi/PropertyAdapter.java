@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.PropertyHolder> {
@@ -65,4 +66,12 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
             ivProperty = itemView.findViewById(R.id.img);
         }
     }
+
+    public void updateList(List<Property> newList) {
+        properties = new ArrayList<>();
+        properties.addAll(newList);
+        notifyDataSetChanged();
+    }
+
+
 }

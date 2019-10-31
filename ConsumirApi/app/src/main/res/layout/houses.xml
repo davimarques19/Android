@@ -5,12 +5,13 @@
     android:layout_margin="10dp"
     android:padding="15dp" >
 
-    <ImageView
+    <ImageButton
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="#C4C4C4"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:onClick="Detalhes" />
 
     <TextView
         android:id="@+id/address"
