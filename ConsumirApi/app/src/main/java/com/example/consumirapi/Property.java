@@ -1,4 +1,4 @@
-package com.example.iteris_cards_api;
+package com.example.consumirapi;
 
 public class Property {
 

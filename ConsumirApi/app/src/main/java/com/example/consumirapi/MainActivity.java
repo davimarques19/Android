@@ -1,12 +1,11 @@
-package com.example.iteris_cards_api;
-
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
+package com.example.consumirapi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
 public class MainActivity extends AppCompatActivity {
     RecyclerView rvProperty;
     List<Property> properties;
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.houses);
+        setContentView(R.layout.activity_main);
         rvProperty = findViewById(R.id.rv_property);
         properties = new ArrayList<>();
         propertyAdapter = new PropertyAdapter(this, properties);
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         list();
     }
 
-    private  void list(){
+    private void list() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://iteris.firebaseio.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -55,6 +53,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }

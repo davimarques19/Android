@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:padding="15dp" >
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#C4C4C4"
+        android:layout_marginBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+        android:text="Endereço"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+        android:text="Preço"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:text="Proprietário"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:text="Tipo"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
