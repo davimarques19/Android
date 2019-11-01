@@ -3,10 +3,12 @@ package com.example.consumirapi;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.SearchView;
+import android.view.inputmethod.EditorInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,14 +32,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        rvProperty = findViewById(R.id.rv_property);
         properties = new ArrayList<>();
-        propertyAdapter = new PropertyAdapter(this, properties);
-        rvProperty.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        rvProperty.setAdapter(propertyAdapter);
         list();
+        setUpRecyclerView();
     }
-
 
     private void list() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -60,36 +58,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void setUpRecyclerView() {
+        rvProperty = findViewById(R.id.rv_property);
+        rvProperty.setHasFixedSize(true);
+        rvProperty.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        propertyAdapter = new PropertyAdapter(this, properties);
+        rvProperty.setAdapter(propertyAdapter);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        //MenuItem menuItem = menu.findItem(R.id.action_search);
-        //SearchView searchView = (SearchView) menuItem.getActionView();
-        //searchView.setOnQueryTextListener(this);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.example_menu, menu);
 
-        return true;
-    }
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
 
-    /**
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        String userInput = newText.toLowerCase();
-        List<Property> newList = new ArrayList<>();
-
-        for(Property name : properties) {
-            if(name.toString().toLowerCase().contains(userInput)){
-                newList.add(name);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
-        }
 
-        propertyAdapter.updateList(newList);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                propertyAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         return true;
     }
-    **/
 }
